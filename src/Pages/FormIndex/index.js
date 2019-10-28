@@ -1,67 +1,87 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import { Redirect, Link } from "react-router-dom";
 import './style.css'
 
+import Menu from '../menu'
+import FirebaseService from '../../services/FirebaseService'
+import { withRouter } from 'react-router-dom';
+
 class FormIndex extends Component {
-  constructor() {
-    super()
-    this.state = { nome: 0, questoes: 0 }
-
-  }
-
-  changeForm = (event) => {
-    this.setState({ [event.target.name]: event.target.value })
-    console.log(`${event.target.name} - ${event.target.value}`)
-  }
+  // changeForm = (event) => {
+  //   this.setState({ [event.target.name]: event.target.value })
+  //   // console.log(`${event.target.name} - ${event.target.value}`)
+  // }
 
   submitForm = (event) => {
     event.preventDefault()
-    const { nome, questoes } = this.state
+
+    const { nome } = this
+    const { nomeProva } = this
+    const { numero_questoes } = this
+
+    let questoes = []
+    for (let i = 1; i <= numero_questoes; i++) {
+      let questao = {
+        label: '',
+        alternativa: ''
+      }
+      questao.label = i
+      questao.alternativa = ''
+      questoes.push(questao)
+    }
 
 
-    console.log('event submit', this.state.numero)
-    this.props.history.push(`/prova/${questoes}/${nome}`)
+    FirebaseService.pushData('provas', {
+      nome,
+      nomeProva,
+      questoes
+    })
+
+    this.props.history.push(`/provas`)
   }
 
   render() {
     return (
-      <div className="form-container">
-        <div className="form-content">
-          <div className="card">
-            <div className="card-body">
-              <form onSubmit={this.submitForm}>
-                <h3 className="card-title">Digite o seu nome:</h3>
-                <div className="form-group">
-                  <input
-                    className="form-control form-control-lg"
-                    name="nome"
-                    onChange={this.changeForm}
-                    type="text" />
-                </div>
-                <h3 className="card-title">Digite a quantidade questões desejada:</h3>
-                <div className="form-group">
-                  <input
-                    className="form-control form-control-lg"
-                    placeholder="Nº de Questões"
-                    name="questoes"
-                    onChange={this.changeForm}
-                    type="text" />
-                </div>
-                <div className="form-group">
-                  <Link to={`/prova/${this.state.questoes}/${this.state.nome}`} >
-                    Teste
-                  </Link>
-                  {/* <button className="btn btn-primary btn-lg btn-block" type="submit">Iniciar Prova</button> */}
-                </div>
-              </form>
-            </div>
+      <>
+        <Menu cad />
+        <div className="form-container">
+          <div className="form-content">
+            <h3>Cadastro</h3>
+            <form onSubmit={this.submitForm}>
+              <h3 className="card-title">Digite o seu nome:</h3>
+              <div className="form-group">
+                <input
+                  className="form-control form-control-lg"
+                  name="nome"
+                  onChange={e => this.nome = e.target.value}
+                  type="text" />
+              </div>
+              <h3 className="card-title">Digite o nome da Prova:</h3>
+              <div className="form-group">
+                <input
+                  className="form-control form-control-lg"
+                  name="nomeProva"
+                  onChange={e => this.nomeProva = e.target.value}
+                  type="text" />
+              </div>
+              <h3 className="card-title">Digite a quantidade questões desejada:</h3>
+              <div className="form-group">
+                <input
+                  className="form-control form-control-lg"
+                  placeholder="Nº de Questões"
+                  name="questoes"
+                  onChange={e => this.numero_questoes = e.target.value}
+                  type="text" />
+              </div>
+              <div className="form-group">
+                <button className="btn btn-primary btn-lg btn-block" type="submit">Cadastrar Prova</button>
+              </div>
+            </form>
           </div>
         </div>
-      </div>
+      </>
+
     )
   }
 }
 
-export default FormIndex
-// export default withRouter(FormIndex)
+export default withRouter(FormIndex)

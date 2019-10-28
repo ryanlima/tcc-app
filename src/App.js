@@ -7,8 +7,6 @@ import Routes from './routes'
 
 export default props => (
   <HashRouter>
-    <div className="App">
-      <Routes/>
-    </div>
+    <Routes />
   </HashRouter>
 )

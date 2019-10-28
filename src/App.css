@@ -11,9 +11,6 @@ html, body, #root {
   min-height: 100%;
 }
 
-body {
-  background: #000 ;
-}
 
 body, input, button {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;

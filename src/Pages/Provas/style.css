@@ -1,0 +1,7 @@
+.card-prova{
+  margin: 10px
+}
+.card-prova:hover{
+  background: #ccc;
+  box-shadow: 0px 2px 4px 0 #ccc;
+}

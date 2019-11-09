@@ -14,14 +14,12 @@ class FormIndex extends Component {
   submitForm = (event) => {
     event.preventDefault()
 
-    const { nome } = this
-    const { nomeProva } = this
-    const { numero_questoes } = this
+    const { nome, nomeProva, numero_questoes } = this
 
     let questoes = []
     for (let i = 1; i <= numero_questoes; i++) {
       let questao = {
-        label: '',
+        label: '', 
         alternativa: ''
       }
       questao.label = i

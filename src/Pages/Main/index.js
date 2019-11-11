@@ -13,7 +13,7 @@ class Main extends Component {
             <Link className="btn btn-primary btn-lg btn-block" to={'/cadastro'} >
               Cadastrar Provas
             </Link>
-            <Link className="btn btn-info btn-lg btn-block" to={'/cadastro'} >
+            <Link className="btn btn-info btn-lg btn-block" to={'/provas'} >
               Provas Cadastradas
             </Link>
           </div>

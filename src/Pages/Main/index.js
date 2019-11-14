@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
-import { Link } from "react-router-dom";
+import KeyboardEventHandler from 'react-keyboard-event-handler';
+
+import { Link, withRouter } from "react-router-dom";
 import './style.css'
 
 class Main extends Component {
@@ -10,12 +12,15 @@ class Main extends Component {
       <div className="container">
         <div className="row">
           <div className="card-container">
-            <Link className="btn btn-primary btn-lg btn-block" to={'/cadastro'} >
-              Cadastrar Provas
+            <Link className="btn btn-primary btn-lg btn-block btn-main" to={'/cadastro'} >
+              Cadastrar Provas 
             </Link>
-            <Link className="btn btn-info btn-lg btn-block" to={'/provas'} >
-              Provas Cadastradas
+            <Link className="btn btn-info btn-lg btn-block btn-main" to={'/provas'} >
+              Provas Cadastradas (SPACE)
             </Link>
+          <KeyboardEventHandler
+            handleKeys={['space']}
+            onKeyEvent={() => this.props.history.push('/provas')} />
           </div>
         </div>
       </div>
@@ -23,4 +28,4 @@ class Main extends Component {
   }
 }
 
-export default Main
+export default withRouter(Main)

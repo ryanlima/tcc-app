@@ -1,5 +1,6 @@
 .card-container {
   margin: 80px auto 0;
+  margin-top: 150px;
   max-width: 600px;
   width: 100%;
 }
@@ -8,4 +9,12 @@
   width: 100%;
   border-radius: 4px;
   padding: 30px;
+}
+.btn-main {
+  height: 150px;
+  font-size: 30px;
+  line-height: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

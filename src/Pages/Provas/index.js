@@ -42,7 +42,6 @@ class Provas extends Component {
                       <div className="card card-prova">
                         <div className="card-body">
                           <h3>{item.nomeProva}<small> - {item.nome}</small></h3>
-                          <p>{item.numero_questoes} Questões</p>
                         </div>
                         <div className="card-footer">
                           <div className="row">
@@ -54,7 +53,7 @@ class Provas extends Component {
                             </div>
                             <div className="col-4 col-md-6">
                               <Link className="btn btn-success" to={`/prova/${item.key}`} >
-                                Iniciar Prova
+                                Iniciar Prova 
                               </Link>
                             </div>
                           </div>

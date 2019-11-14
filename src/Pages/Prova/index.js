@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import FirebaseService from '../../services/FirebaseService'
-import KeyboardEventHandler from 'react-keyboard-event-handler';
 
 import './style.css'
 
@@ -41,7 +40,7 @@ class Prova extends Component {
               <div className="d-flex justify-content-center">
               {
                 questoes.map((item) => 
-                  <div key={item.label} >
+                  <div key={item.label} className="gabarito" >
                     <h3>{item.label}</h3>
                     <h3>{item.alternativa}</h3>
                   </div>
@@ -49,10 +48,13 @@ class Prova extends Component {
               }
               </div>
               <hr/>
-              <SlideQuestoes questoes={questoes} handleClick={this.handleClick} handleQuestion={this.handleQuestion} />
-              <KeyboardEventHandler
-                handleKeys={['q','a','s','w','e','d']}
-                onKeyEvent={(key, e) => console.log(`questao  - ${key} - ${e.code} - ${e.which}`)} />
+              <div className="teclado">
+                <SlideQuestoes 
+                  questoes={questoes} 
+                  handleClick={this.handleClick} 
+                  handleQuestion={this.handleQuestion} 
+                />
+              </div>
               {/* {questoes.map((item, index) =>
                 <div key={index}>
                   <h4>{item.label}</h4>

@@ -21,8 +21,8 @@
 }
 
 .arrow {
-  height: 150px;
-  width: 300px;
+  height: 25%;
+  width: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +35,7 @@
 .nextArrow {
   position: absolute;
   top: 55%;
-  right: 100px;
+  right: 5%;
   z-index: 999;
   color: #fff;
 }
@@ -43,20 +43,20 @@
 .backArrow {
   position: absolute;
   top: 55%;
-  left: 100px;
+  left: 5%;
   z-index: 999;
   color: #fff;
 }
 
 .buttonConfirmContent {
-  height: 150px;
-  width: 300px;
+  height: 25%;
+  width: 30%;
   position: absolute;
   top: 55%;
-  left: 38%;
+  left: 36%;
   z-index: 999;
   background-color: rgb(137, 13, 148);
-  font-size: 4em;
+  font-size: 3em;
   color: whitesmoke;
   line-height: 2.5;
 }

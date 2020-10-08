@@ -55,16 +55,9 @@ class Prova extends Component {
                   handleQuestion={this.handleQuestion} 
                 />
               </div>
-              {/* {questoes.map((item, index) =>
-                <div key={index}>
-                  <h4>{item.label}</h4>
-                  <h4>{item.alternativa}</h4>
-                </div>
-              )} */}
             </div>
           </div>
         </div>
-
       </div>
     )
   }

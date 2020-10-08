@@ -1,7 +1,6 @@
 import firebaseApp from "firebase/app";
 import "firebase/database";
 
-
 const config = {
   apiKey: "AIzaSyCfo84ei_WwIGTWkX5VH4Le8KfEQZ2qunQ",
   authDomain: "react-firebase-a77b2.firebaseapp.com",

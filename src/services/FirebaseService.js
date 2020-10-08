@@ -29,7 +29,6 @@ export default class FirebaseService {
   }
 
   static getUniqueDataBy = (node, id, callback) => {
-    console.log(id, node)
     const ref = firebaseDatabase.ref(node + '/' + id)
     let newData = {}
     ref.once('value', (dataSnapshot) => {
@@ -41,7 +40,6 @@ export default class FirebaseService {
         callback(null);
         return;
       }
-      console.log('passou')
       const snap = dataSnapshot.val()
       const keys = Object.keys(snap)
       keys.forEach((key) => {
